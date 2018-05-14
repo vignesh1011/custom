@@ -1,0 +1,18 @@
+apply plugin: 'war'
+webAppDirName = 'src/sivaxa/adwiser/webapp'
+task createWar(type : War){
+    destinationDir = file("$buildDir/")
+    baseName = "demo"
+    version = "1.1"
+    caseSensitive = true
+    classifier = "SNAPSHOT"
+    from "src"
+}
+repositories {
+    jcenter()
+}
+dependencies {
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0' 
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:2.7.19' 
+}
